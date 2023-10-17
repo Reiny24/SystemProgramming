@@ -1,0 +1,54 @@
+git clone https://github.com/SergiiPiatakov/calculator.git
+cd calculator/
+git log --oneline
+
+Swapping 2 commits:
+git rebase -i HEAD~2 (swap 2 commits)
+vi calculator.cpp
+git add calculator.cpp
+git rebase --continue
+git add calculator.cpp
+git rebase --continue
+git log --oneline
+
+Creating patches:
+git log
+git format-patch -1 `SHA of commit`
+git format-patch -1 `SHA of commit`
+
+Merging 2 commits:
+git rebase -i HEAD~4 (replace pick to squash for “fix truncation error”)
+git log --oneline
+
+Removing commit:
+git rebase -i HEAD~1 (replace pick to drop for “formatting: use tabs instead of spaces”)
+git log –oneline
+
+Renaming remote repository:
+git remote
+git remote rename origin github
+git remote
+
+Adding remote repository
+git remote add gitlab https://gitlab.com/SergiiPiatakov/calculator.git
+git remote -v
+
+git fetch gitlab
+git log gitlab/master
+vi myChanges.txt
+git cherry-pick e0ea21b9da1195ac8fb8c9dbcdd4a735a159ff4d
+git status
+vi calculator.h
+git add calculator.h
+git add myChanges.txt
+git add 0001-EDITED.-fix-truncation-error.patch
+git add 0001-EDITED.-formatting-use-tabs-instead-of-spaces.patch
+git cherry-pick --continue
+
+Sending result to my repository:
+git remote add my_repos https://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@github.com/Reiny24/SystemProgramming
+git checkout -b myBranch
+git status
+git log --oneline
+git push my_repos myBranch
+
